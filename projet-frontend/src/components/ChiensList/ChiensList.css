@@ -1,0 +1,10 @@
+.frameCL {
+    border-radius: 12px;
+    background-color: white;
+    border: solid 3px rgb(255, 75, 75);
+    color: rgb(51, 51, 51)
+}
+
+img {
+    border-radius: 16px;
+}
