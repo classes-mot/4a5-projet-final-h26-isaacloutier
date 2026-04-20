@@ -1,0 +1,30 @@
+.frameF {
+    background-color: brown;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 90%;
+    max-height: 300px;
+    margin: 0;
+    margin-top: 10%;
+    padding: 2% 5% 2% 5%;
+}
+
+.frameF h1 {
+    font-size: larger;
+}
+
+.bloc {
+    display: flex;
+    flex-direction: column;
+}
+
+.bloc a {
+    color: white;
+    height: 100%;
+}
+
+.bloc a:hover {
+    text-decoration: underline;
+}

@@ -1,4 +1,5 @@
 import "./ChiensCard.css";
+import { NavLink } from "react-router-dom";
 
 function ChiensCard({id, nom, race, age, sexe, image, categorie}) {
 
@@ -12,8 +13,9 @@ function ChiensCard({id, nom, race, age, sexe, image, categorie}) {
                 <h2>Sexe: {sexe}</h2>
                 
             </div>
-
-            <div className="REDIRECT">Voir</div>
+            <NavLink to="/login" className="REDIRECT">
+                Voir
+            </NavLink>
         </div>
     );
 }
