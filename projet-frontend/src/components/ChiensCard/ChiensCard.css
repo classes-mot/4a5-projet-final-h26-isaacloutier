@@ -1,12 +1,11 @@
 .frameCC {
     background-color: white;
     border-radius: 14px;
-    box-shadow: 0 4px 8px rgb(0, 0, 0);
     color: rgb(0, 0, 0);
 
     transition: 0.2s;
 
-    width: 100%;
+    width: 40%;
     height: 100%;
     max-width: 400px;
     max-height: 600px;
@@ -16,46 +15,40 @@
     justify-content: center;
 }
 
-.frameGC:hover {
+.frameCC:hover {
     transform: translateY(-5px);
 }
 
 img {
     margin: 10px 25% 10px 25%;
     width: 50%;
+    border-radius: 10px;
 }
 
-h1 {
+.frameCC h1 {
     font-size: 2rem;
     width: 80%;
     margin: 10px 10% 10px 10%;
     padding: 0;
     overflow-wrap: break-word;
     text-align: center;
+    background-color: white;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
 }
 
-.cat {
-    font-size: 1rem;
-    margin: 10px 10% 10px 10%;
-    padding: 0;
-    width: 80%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
 
 p {
     text-align: center;
 }
 
 
-.frameGC .button {
-  width: 40%;
+.frameCC .REDIRECT {
+  width: 100px;
   height: 30px;
   border-radius: 10px;
   border-style: none;
-  background-color: gray;
+  background: linear-gradient(to left, rgb(238, 56, 56), rgb(153, 59, 59));
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: bold;
@@ -65,26 +58,21 @@ p {
   transition: 0.2s;
   padding: 5px;
   text-align: center;
-  margin: 0 5px 4% 5px;
+  margin: 0 auto 4% auto;
   
 }
 
-.frameGC .button:hover {
-    transform: translateY(2px);
-    background-color: rgb(109, 109, 109);
-}
 
-.frameGC .buttonsContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 0 0 1% 0;
+.frameCC .REDIRECT:hover {
+    transform: translateY(2px);
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5)
 }
 
 a {
     text-decoration: none;
 }
+
+
 
 @media (max-width: 760px) {
     img {
@@ -94,7 +82,7 @@ a {
     h1 {
         font-size: 1.5rem;
     }
-    .frameGC .button {
+    .frameCC .button {
         font-size: medium;
         padding: 2px;
     }

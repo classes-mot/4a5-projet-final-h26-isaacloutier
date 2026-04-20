@@ -1,6 +1,6 @@
-import qanik from "../assets/qanik.png"
+import qanik from "../assets/qanik.jpg"
 
-export const games = [
+export const chiens = [
     {
         id: 0,
         nom: "Qanik",

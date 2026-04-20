@@ -1,6 +1,6 @@
-import "./GameCard.css";
+import "./ChiensCard.css";
 
-function GameCard({id, nom, race, age, sexe, image, categorie}) {
+function ChiensCard({id, nom, race, age, sexe, image, categorie}) {
 
     return (
         <div className="frameCC">
@@ -10,6 +10,7 @@ function GameCard({id, nom, race, age, sexe, image, categorie}) {
                 <h2>Race: {race}</h2>
                 <h2>Age: {age}</h2>
                 <h2>Sexe: {sexe}</h2>
+                
             </div>
 
             <div className="REDIRECT">Voir</div>
@@ -19,5 +20,5 @@ function GameCard({id, nom, race, age, sexe, image, categorie}) {
 
 
 // ajouter au moin un code pour tester ???
-export default GameCard;
+export default ChiensCard;
 

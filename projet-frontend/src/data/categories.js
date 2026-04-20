@@ -1,9 +1,8 @@
 
 
-export const categories = [
-    {
+export const categories = {
         enVedette: [
             0
         ]
+
     }
-]
