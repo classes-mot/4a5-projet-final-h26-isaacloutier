@@ -17,3 +17,10 @@ h1 {
     color: rgb(218, 0, 0);
     font-weight: 400;
 }
+
+
+.­frameCL ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+}
