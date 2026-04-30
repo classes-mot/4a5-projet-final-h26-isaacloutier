@@ -19,7 +19,7 @@ h1 {
 }
 
 
-.­frameCL ul {
+.frameCL ul {
     display: flex;
     list-style: none;
     flex-direction: row;

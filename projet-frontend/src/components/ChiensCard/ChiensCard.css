@@ -5,7 +5,7 @@
 
     transition: 0.2s;
 
-    width: 40%;
+    width: 90%;
     height: 100%;
     max-width: 400px;
     max-height: 600px;
@@ -19,10 +19,18 @@
     transform: translateY(-5px);
 }
 
-img {
-    margin: 10px 25% 10px 25%;
-    width: 50%;
+.imgContainer img {
     border-radius: 10px;
+    width: 100%;
+}
+
+.imgContainer {
+    display: flex;
+    margin: 10px 25% 10px 25%;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+    padding:10px
 }
 
 .frameCC h1 {

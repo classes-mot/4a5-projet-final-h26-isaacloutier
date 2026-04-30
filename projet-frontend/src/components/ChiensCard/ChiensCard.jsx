@@ -5,7 +5,10 @@ function ChiensCard({id, nom, race, age, sexe, image, categorie}) {
 
     return (
         <div className="frameCC">
-            <img src={image} alt={nom}/>
+            <div className="imgContainer">
+                <img src={image} alt={nom}/>
+            </div>
+            
             <h1>{nom}</h1>
             <div className="info">
                 <h2>Race: {race}</h2>
@@ -13,7 +16,7 @@ function ChiensCard({id, nom, race, age, sexe, image, categorie}) {
                 <h2>Sexe: {sexe}</h2>
                 
             </div>
-            <NavLink to="/login" className="REDIRECT">
+            <NavLink to={`/adopter/${id}`} className="REDIRECT">
                 Voir
             </NavLink>
         </div>
