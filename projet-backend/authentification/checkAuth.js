@@ -9,7 +9,7 @@ const checkAuth = (req, res, next) => {
     if (!token) {
       throw new Error('Authentication failed!');
     }
-    const decodedToken = jwt.verify(token, 'isaacTp02');
+    const decodedToken = jwt.verify(token, 'isaacProjet');
     req.userData = { userId: decodedToken.userId };
     next();
   } catch (err) {

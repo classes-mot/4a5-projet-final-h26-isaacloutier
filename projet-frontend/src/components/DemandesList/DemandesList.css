@@ -1,0 +1,15 @@
+.frameDL li {
+    list-style: none;
+    background-color: white;
+    border: 3px solid rgb(145, 39, 39);
+    border-radius: 12px;
+    color: brown;
+    margin-bottom: 10px;
+}
+
+.frameDL ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+}

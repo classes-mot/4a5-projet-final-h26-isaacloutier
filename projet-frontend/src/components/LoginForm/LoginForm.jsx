@@ -1,24 +1,41 @@
 import "./LoginForm.css";
 import { useState, useContext } from "react"
 import { AuthContext } from "../../context/AuthContext/AuthContext";
-function LoginForm({fermer}) {
+import { useNavigate } from "react-router-dom";
+function LoginForm() {
+    const auth = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    const [usernameValide, validerUsername] = useState(false)
-    const [passwordValide, validerPassword] = useState(false)
-    const auth = useContext(AuthContext)
-
-    function addTaskSubmitHandler(event) {
+    async function submitHandler(event) {
         event.preventDefault();
         const fd = new FormData(event.target);
         const data = Object.fromEntries(fd);
+        navigate("/");
         auth.login();
 
+        const user = {
+            nom: data.inputUsername,
+            password: data.inputPassword
+        }
 
-        
+        try {
+            const response = await
+                fetch('http://localhost:5000/api/user/login', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user)
+            });
+            const data = await response.json()
+            localStorage.setItem("token", data.token)
+        } catch (err) {
+            console.error(err);
+        }
     }
     return (
         <div className="center">
-            <form className="frameLF" onSubmit={addTaskSubmitHandler}>
+            <form className="frameLF" onSubmit={submitHandler}>
                 <h1>Login</h1>
                 <label htmlFor="inputUsername">Pseudonyme</label>
                 <input type="text" id="inputUsername" name="inputUsername"/>
@@ -30,6 +47,7 @@ function LoginForm({fermer}) {
         </div>
         
         );
-}
+    }
+
 
 export default LoginForm;  

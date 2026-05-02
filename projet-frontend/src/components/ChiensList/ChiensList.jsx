@@ -8,10 +8,11 @@ function ChiensList({title}) {
     let categorie;
     if (title == "En vedette") {
         categorie = "enVedette"
+    } else if (title == "Âge d'or") {
+        categorie = "ageDOr"
+    } else if (title == "Nouveautés") {
+        categorie = "nouveautes"
     }
-    console.log("title:", title);
-    console.log("categories:", categories);
-    console.log("categories[title]:", categories[title]);
     return (
         <div className="frameCL">
             <h1>{title}</h1>

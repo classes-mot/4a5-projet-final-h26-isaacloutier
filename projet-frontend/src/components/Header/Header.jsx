@@ -10,7 +10,7 @@ function Header() {
         <header className="header">
             <h1>WOOFONTRENCY</h1>
             <ul>
-                {auth.isLoggedIn ? <button onClick={auth.logout}>Logout</button> : 
+                {auth.isLoggedIn ? <li><button onClick={auth.logout}>Logout</button></li> : 
                     <li>
                         <NavLink to="login">Login</NavLink>
                     </li>

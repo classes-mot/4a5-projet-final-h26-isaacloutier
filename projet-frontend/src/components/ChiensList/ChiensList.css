@@ -24,3 +24,9 @@ h1 {
     list-style: none;
     flex-direction: row;
 }
+
+@media (max-width: 768px) {
+    .frameCL ul {
+        flex-wrap: wrap;
+    }
+}

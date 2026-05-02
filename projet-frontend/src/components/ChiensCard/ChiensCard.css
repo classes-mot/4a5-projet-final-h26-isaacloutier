@@ -6,13 +6,14 @@
     transition: 0.2s;
 
     width: 90%;
-    height: 100%;
+    height: auto;
     max-width: 400px;
     max-height: 600px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 10px;
 }
 
 .frameCC:hover {
@@ -21,12 +22,12 @@
 
 .imgContainer img {
     border-radius: 10px;
-    width: 100%;
+    width: 60%;
 }
 
 .imgContainer {
     display: flex;
-    margin: 10px 25% 10px 25%;
+    margin: 10px 15px 10px 15px;
     height: 300px;
     align-items: center;
     justify-content: center;
@@ -82,10 +83,9 @@ a {
 
 
 
-@media (max-width: 760px) {
-    img {
-        margin: 10px 10%;
-        width: 80%;
+@media (max-width: 768px) {
+    .frameCC img {
+        width: 40%;
     }
     h1 {
         font-size: 1.5rem;

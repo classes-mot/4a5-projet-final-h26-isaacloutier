@@ -1,0 +1,43 @@
+.frameFiche .conteneurMain .conteneurImg {
+    display: flex;
+    width: 40%;
+    height: auto;
+    align-items: center;
+}
+
+.frameFiche .conteneurMain .conteneurImg img{
+    width: 100%;
+    border-radius: 20px;
+    border: 5px solid white;
+    margin: 0;
+}
+
+
+.frameFiche {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    background-color: brown;
+    padding:30px 0 30px 0;
+    color: white
+}
+
+.conteneurMain {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly
+}
+
+.conteneurInfo {
+    width: 40%
+}
+
+.conteneurInfo h2 {
+    background-color: white;
+    color: brown;
+    border-radius: 12px;
+    font-weight: 400;
+    margin-top: 20px;
+    padding: 10px 0 10px 0
+}
+

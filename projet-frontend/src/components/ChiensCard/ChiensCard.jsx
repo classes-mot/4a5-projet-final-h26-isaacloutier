@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import "./ChiensCard.css";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
 
 function ChiensCard({id, nom, race, age, sexe, image, categorie}) {
-
+    const auth = useContext(AuthContext);
     return (
         <div className="frameCC">
             <div className="imgContainer">
@@ -16,9 +18,11 @@ function ChiensCard({id, nom, race, age, sexe, image, categorie}) {
                 <h2>Sexe: {sexe}</h2>
                 
             </div>
+            {auth.isLoggedIn ? 
             <NavLink to={`/adopter/${id}`} className="REDIRECT">
                 Voir
-            </NavLink>
+            </NavLink> : null}
+            
         </div>
     );
 }

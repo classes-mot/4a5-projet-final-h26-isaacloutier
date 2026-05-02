@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const demandeSchema = new mongoose.Schema({
-    id: {type: Number, required: true},
+    idChien: {type: Number, required: true},
     nom: {type: String, required: true},
     telephone: {type: String, required: true},
     adresse: {type: String, required: true},

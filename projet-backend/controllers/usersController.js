@@ -1,6 +1,5 @@
 // users-controller.js
 import jwt from 'jsonwebtoken';
-import { User } from "../models/user.js"
 import HttpError from '../util/httpError.js';
 
 
@@ -10,7 +9,7 @@ const login = async (req, res, next) => {
     try {
       console.log('identifié!');
       token = jwt.sign(
-        { userId: existingUser.id, email: existingUser.email },
+        { nom: nom, password: password },
         'isaacProjet',
         { expiresIn: '1h' }
       );
@@ -24,14 +23,13 @@ const login = async (req, res, next) => {
       return next(error);
     }
     res.status(201).json({
-      userId: existingUser.id,
-      email: existingUser.email,
+      nom: nom, 
+      password: password,
       token: token,
     });
   };
 
 
 export default {
-  registerUser,
   login,
 };

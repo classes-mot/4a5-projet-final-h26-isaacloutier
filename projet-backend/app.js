@@ -9,8 +9,9 @@ const port = 5000
 app.use(express.json());
 app.use(cors());
 await connectDB();
-app.use("/api", demandesRoutes);
 app.use("/api/user", usersRoutes);
+app.use("/api/demandes", demandesRoutes);
+
 
 
 

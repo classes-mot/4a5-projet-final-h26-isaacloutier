@@ -7,17 +7,20 @@ import RootLayout from './components/Navigation/RootLayout';
 import ErrorPage from "./components/Navigation/ErrorPage"
 import LoginForm from './components/LoginForm/LoginForm';
 import { AuthContext } from './context/AuthContext/AuthContext';
+import Fiche from "./components/Fiche/Fiche"
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(() => localStorage.getItem("token") !== null);
 
     const loginHandler = () => {
       setIsLoggedIn(true);
+
     }
 
     const logoutHandler = () => {
       setIsLoggedIn(false);
+      localStorage.removeItem("token");
     }
 
   const router = createBrowserRouter([
@@ -25,7 +28,14 @@ function App() {
       path: "/", element: <RootLayout />, errorElement: <ErrorPage />,
       children: [
         { path: "/", element:
-           <ChiensList title="En vedette"></ChiensList> },
+          <>
+            <ChiensList title="En vedette"></ChiensList> 
+            <ChiensList title="Âge d'or"></ChiensList>
+            <ChiensList title="Nouveautés"></ChiensList>
+          </>
+
+          },
+           
         { path: "/login", element: <LoginForm/> },
         { path: "*", element: <ErrorPage /> },
       ]
@@ -37,9 +47,17 @@ function App() {
       path: "/", element: <RootLayout />, errorElement: <ErrorPage />,
       children: [
         { path: "/", element:
-           <ChiensList title="En vedette"></ChiensList> },
-        { path: "/login", element: <div className='addRoot'>login</div> },
-        { path: "/voir", element: <div className='addRoot'>voir</div> },
+          <>
+          
+            <ChiensList title="En vedette"></ChiensList>
+            <ChiensList title="Âge d'or"></ChiensList>
+            <ChiensList title="Nouveautés"></ChiensList>
+
+          </>
+           
+          
+          },
+        { path: "/adopter/:id", element: <Fiche/> },
         { path: "*", element: <ErrorPage /> },
       ]  
     }

@@ -1,6 +1,20 @@
 import HttpError from '../util/httpError.js';
 import { Demande } from "../models/demande.js"
 
+const getDemandes = async (req, res, next) => {
+  let demandes;
+  try {
+    demandes = await Demande.find();
+  } catch (err) {
+    console.log("Erreur lors du get", err)
+    return next(new HttpError("Erreur requête", 500));
+  }
+
+  res.json({
+    demandes: demandes.map(d => d.toObject({ getters: true }))
+  });
+};
+
 const getDemandesById = async (req, res, next) => {
   const demandeId = req.params.id;
 
@@ -24,68 +38,68 @@ const getDemandesById = async (req, res, next) => {
 
 
 const createDemande = async (req, res, next) => {
-  const { id, nom, telephone, adresse, description } = req.body;
-  const createdGame = new Game({
-    name,
-    categorie,
-    duree,
-    image,
-    nbJoueurs,
+  const { idChien, nom, telephone, adresse, description } = req.body;
+  const createDemande = new Demande({
+    idChien,
+    nom,
+    telephone,
+    adresse,
+    description
   });
 
   try {
-    await createdGame.save();
+    await createDemande.save();
   } catch(err) {
     console.log("Erreur lors de l'ajout", err)
     return next(new HttpError("Erreur dans la requête", 500));
   }
-  res.status(201).json({ game: createdGame });
+  res.status(201).json({ demande: createDemande });
 };
 
-const updateGame = async (req, res, next) => {
-  const { name, categorie, duree, image, nbJoueurs } = req.body;
-  const gameId = req.params.id;
+const updateDemande = async (req, res, next) => {
+  const { idChien, nom, telephone, adresse, description } = req.body;
+  const demandeId = req.params.id;
   
-  let updatedGame;
+  let updatedDemande;
   try {
-    updatedGame = await Game.findById(gameId);
-    updatedGame.name = name;
-    updatedGame.categorie = categorie;
-    updatedGame.duree = duree;
-    updatedGame.image = image;
-    updatedGame.nbJoueurs = nbJoueurs;
-    await updatedGame.save();
+    updatedDemande = await Demande.findById(demandeId);
+    updateDemande.idChien = idChien;
+    updatedDemande.nom = nom;
+    updatedDemande.telephone = telephone;
+    updatedDemande.adresse = adresse;
+    updatedDemande.description = description;
+    await updatedDemande.save();
   } catch(err) {
     console.log("Erreur lors de l'ajout", err)
     return next(new HttpError("Erreur dans la requête", 500));
   }
 
-  res.status(200).json({ game: updatedGame });
+  res.status(200).json({ demande: updatedDemande });
 };
 
-const deleteGame = async (req, res, next) => {
-  const gameId = req.params.id;
+const deleteDemande = async (req, res, next) => {
+  const demandeId = req.params.id;
   
   try {
-    const game = await Game.findByIdAndDelete(gameId);
+    const demande = await Demande.findByIdAndDelete(demandeId);
 
-    if (!game) {
+    if (!demande) {
       return res.status(404).json({message: "Suppression échouée."})
     }
   } catch {
-    const error = new Error('Jeu non trouvée');
+    const error = new Error('Demande non trouvée');
       error.code = 404; 
       return next(error); 
   }
 
-  res.json({message:"Jeu supprimé."})
+  res.json({message:"Demande supprimée."})
 
 };
 
 export default {
   getDemandes: getDemandes,
-  getGamesById: getDemandesById,
+  getDemandesById: getDemandesById,
   createDemande: createDemande,
-  updateDemande: updateGame,
-  deleteDemande: deleteGame,
+  updateDemande: updateDemande,
+  deleteDemande: deleteDemande,
 };
