@@ -1,0 +1,42 @@
+{
+    "acceuil": {
+        "enVedette":"Popular",
+        "ageDOr": "Golden age",
+        "nouveautes":"New arrivals",
+        "age":"Age: ",
+        "race": "Specie: ",
+        "sexe":"Gender: ",
+        "voir": "See"
+    },
+
+    "header": {
+        "login": "Login",
+        "logout": "Logout",
+        "acceuil":"Home"
+    },
+
+    "footer": {
+        "aPropos": "About",
+        "coordonnes": "Coordinates",
+        "nousJoindre": "Join us",
+        "nosBenevoles":"Our volunteers",
+        "politiques": "Politics",
+        "dons": "Donations"
+    },
+
+    "fiche":{
+        "nom":"Full name:",
+        "telephone":"Telephone:",
+        "adresse":"Adress:",
+        "description":"Description of the demand:",
+        "modifier":"Modify",
+        "envoyer":"Send",
+        "supprimer":"Delete",
+        "toutesLesDemandes":"All demands",
+        "erreurEnvoyer":"You already have a demand.",
+        "erreurModifierLigne1":"No demand has been found",
+        "erreurModifierLigne2":"Please make sure you entered a value under the field 'Full name'.",
+        "erreurChampsObli": "All fields are mandatory."
+    }
+    
+}

@@ -1,0 +1,42 @@
+{
+    "acceuil": {
+        "enVedette":"En vedette",
+        "ageDOr": "Âge d'or",
+        "nouveautes":"Nouveautés",
+        "age":"Âge: ",
+        "race": "Race: ",
+        "sexe":"Sexe: ",
+        "voir": "Voir"
+    },
+
+    "header": {
+        "login": "Connexion",
+        "logout": "Déconnexion",
+        "acceuil":"Accueil"
+    },
+
+    "footer": {
+        "aPropos": "À propos",
+        "coordonnes": "Coordonnées",
+        "nousJoindre": "Nous joindre",
+        "nosBenevoles":"Nos bénévoles",
+        "politiques": "Politiques",
+        "dons": "Dons"
+    },
+
+        "fiche":{
+        "nom":"Nom complet:",
+        "telephone":"Téléphone:",
+        "adresse":"Adresse:",
+        "description":"Description de la demand:",
+        "modifier":"Modifier",
+        "envoyer":"Envoyer",
+        "supprimer":"Supprimer",
+        "toutesLesDemandes":"Toutes les demandes",
+        "erreurEnvoyer":"Vous avez déjà placé une demande.",
+        "erreurModifierLigne1":"Aucune demande à ce nom.",
+        "erreurModifierLigne2":"Assurez-vous d'avoir entré une valeur dans la section 'Nom complet'.",
+        "erreurChampsObli": "Tous les champs sont obligatoires."
+    }
+    
+}

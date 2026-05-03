@@ -6,12 +6,14 @@ import { useParams } from "react-router-dom";
 import FormDemande from "../FormDemande/FormDemande.jsx";
 import DemandesList from "../DemandesList/DemandesList.jsx";
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 function Fiche() {
     const params = useParams();
     const idChien = params.id;
 
     const [allData, setAllData] = useState(null);
+    const [t] = useTranslation();
 
     async function getData() {
         try {
@@ -46,7 +48,7 @@ function Fiche() {
                 <div className="conteneurInfo">
                     
                     <FormDemande chien={chien} refreshData={getData}/>
-                    <h2>Toutes les demandes</h2>
+                    <h2>{t("fiche.toutesLesDemandes")}</h2>
                     <DemandesList idChien={chien.id} allData={allData}/>
                 </div>
             </div>

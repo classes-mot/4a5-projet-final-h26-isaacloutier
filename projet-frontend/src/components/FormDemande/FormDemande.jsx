@@ -1,10 +1,13 @@
 
 import { useState } from "react";
 import "./FormDemande.css";
+import { useTranslation } from "react-i18next";
 function FormDemande({chien, refreshData}) {
 
     const [demandeAlrExists, setDemandeAlrExists] = useState(false)
     const [aucuneDemandeACeNom, setAucuneDemandeACeNom] = useState(false)
+    const [champsObli, setChampsObli] = useState(false)
+    const [t] = useTranslation();
 
     async function submitHandler(event) {
         event.preventDefault();
@@ -34,30 +37,42 @@ function FormDemande({chien, refreshData}) {
                 demandeId = demande._id;
             }
         });
+        if (data.nom != "" && data.telephone != "" && data.adresse != "" && data.desc != "") {
+            setChampsObli(false);
+            if (action == "envoyer") {
+                if (!existe) {
+                    postData(nouvelleDemande);
 
-        if (action == "envoyer") {
-            if (!existe) {
-                postData(nouvelleDemande);
-                setDemandeAlrExists(false)
-                setAucuneDemandeACeNom(false);
+                    setAucuneDemandeACeNom(false);
+                    
+                }
+            } else if (action == "modifier") {
+
+                if (existe) {
+                    updateData(nouvelleDemande, demandeId);
+                } else {
+                    setDemandeAlrExists(false);
+                    setAucuneDemandeACeNom(true);
+                }
+            } else if (action == "supprimer") {
+                
+                if (existe) {
+                    deleteData(demandeId);
+                    event.target.reset();
+                } else {
+                    setDemandeAlrExists(false);
+                    setAucuneDemandeACeNom(true);
+                }
+                
             }
-        } else if (action == "modifier") {
-            setDemandeAlrExists(false)
-            if (existe) {
-                updateData(nouvelleDemande, demandeId);
-            } else {
-                setAucuneDemandeACeNom(true);
-            }
-        } else if (action == "supprimer") {
-            setDemandeAlrExists(false)
-            if (existe) {
-                deleteData(demandeId);
-                event.target.reset();
-            } else {
-                setAucuneDemandeACeNom(true);
-            }
-            
+        } else {
+            setChampsObli(true);
+            setDemandeAlrExists(false);
+            setAucuneDemandeACeNom(false);
         }
+        
+
+
         
 
     }
@@ -135,24 +150,25 @@ function FormDemande({chien, refreshData}) {
 
     return (
     <form onSubmit={submitHandler}className="formDemande">
-                    <label htmlFor="nom">Nom complet:</label>
+                    <label htmlFor="nom">{t("fiche.nom")}</label>
                     <input id="nom" name="nom" type="text"/>
 
-                    <label htmlFor="telephone">Téléphone:</label>
+                    <label htmlFor="telephone">{t("fiche.telephone")}</label>
                     <input id="telephone" name="telephone" type="text"/>
 
-                    <label htmlFor="adresse">Adresse:</label>
+                    <label htmlFor="adresse">{t("fiche.adresse")}</label>
                     <input id="adresse" name="adresse" type="text"/>
 
-                    <label htmlFor="desc">Description de la demande:</label>
+                    <label htmlFor="desc">{t("fiche.description")}</label>
                     <textarea id="desc" name="desc" rows="10"/>
                     <div className="buttons">
-                        <button type="submit" value="modifier">Modifier</button>
-                        <button type="submit" value="envoyer" id="envoyer">Envoyer</button>
-                        <button type="submit" value="supprimer">Supprimer</button>
+                        <button type="submit" value="modifier">{t("fiche.modifier")}</button>
+                        <button type="submit" value="envoyer" id="envoyer">{t("fiche.envoyer")}</button>
+                        <button type="submit" value="supprimer">{t("fiche.supprimer")}</button>
                     </div>
-                    {demandeAlrExists ? <div>Vous avez déjà placé une demande.</div> : null}
-                    {aucuneDemandeACeNom ? <div>Aucune demande à ce nom.<br/> Assurez-vous d'avoir entré une valeur dans la section "Nom complet".</div> : null}
+                    {demandeAlrExists ? <div>{t("fiche.erreurEnvoyer")}</div> : null}
+                    {aucuneDemandeACeNom ? <div>{t("fiche.erreurModifierLigne1")}<br/> {t("fiche.erreurModifierLigne2")}</div> : null}
+                    {champsObli ? <div>{t("fiche.erreurChampsObli")}</div> : null}
                     
 
                 </form>
