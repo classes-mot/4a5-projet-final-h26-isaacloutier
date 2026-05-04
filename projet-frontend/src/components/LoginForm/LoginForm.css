@@ -23,6 +23,11 @@
     padding: 10px;
 }
 
+.frameLF h1 {
+    margin:5px;
+    align-self: center;
+}
+
 input, select {
     width: 90%;
     margin: 0 5% 7px 5%;

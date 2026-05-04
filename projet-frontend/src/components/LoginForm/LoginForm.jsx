@@ -2,7 +2,9 @@ import "./LoginForm.css";
 import { useState, useContext } from "react"
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 function LoginForm() {
+    const [t] = useTranslation()
     const auth = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -20,7 +22,7 @@ function LoginForm() {
 
         try {
             const response = await
-                fetch('http://localhost:5000/api/user/login', {
+                fetch(`${import.meta.env.VITE_BACKEND_URL}/api/user/login`, {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json',
@@ -36,13 +38,13 @@ function LoginForm() {
     return (
         <div className="center">
             <form className="frameLF" onSubmit={submitHandler}>
-                <h1>Login</h1>
-                <label htmlFor="inputUsername">Pseudonyme</label>
+                <h1>{t("login.login")}</h1>
+                <label htmlFor="inputUsername">{t("login.pseudo")}</label>
                 <input type="text" id="inputUsername" name="inputUsername"/>
 
-                <label htmlFor="inputPassword">Mot de passe</label>
+                <label htmlFor="inputPassword">{t("login.password")}</label>
                 <input type="password" id="inputPassword" name="inputPassword"/>
-                <button type="submit">Login</button>
+                <button type="submit">{t("login.login")}</button>
             </form>
         </div>
         

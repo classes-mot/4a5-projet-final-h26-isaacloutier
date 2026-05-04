@@ -37,6 +37,12 @@
         "erreurModifierLigne1":"Aucune demande à ce nom.",
         "erreurModifierLigne2":"Assurez-vous d'avoir entré une valeur dans la section 'Nom complet'.",
         "erreurChampsObli": "Tous les champs sont obligatoires."
+    },
+
+    "login": {
+        "pseudo":"Pseudonyme",
+        "password":"Mot de passe",
+        "login":"Connecter"
     }
     
 }

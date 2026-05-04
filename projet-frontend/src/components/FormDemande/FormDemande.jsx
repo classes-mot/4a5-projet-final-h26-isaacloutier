@@ -80,7 +80,7 @@ function FormDemande({chien, refreshData}) {
     async function updateData(nouvelleDemande, id) {
         try {
             const response = await
-                fetch(`http://localhost:5000/api/demandes/update/${id}`, {
+                fetch(`${import.meta.env.VITE_BACKEND_URL}/api/demandes/update/${id}`, {
                 method: 'PATCH',
                 headers: {
                 'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ function FormDemande({chien, refreshData}) {
     async function deleteData(id) {
         try {
             const response = await
-                fetch(`http://localhost:5000/api/demandes/delete/${id}`, {
+                fetch(`${import.meta.env.VITE_BACKEND_URL}/api/demandes/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                 'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ function FormDemande({chien, refreshData}) {
     async function postData(nouvelleDemande) {
         try {
             const response = await
-                fetch('http://localhost:5000/api/demandes/add', {
+                fetch(`${import.meta.env.VITE_BACKEND_URL}/api/demandes/add`, {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ function FormDemande({chien, refreshData}) {
         let data;
         try {
             const response = await
-                fetch('http://localhost:5000/api/demandes', {
+                fetch(`${import.meta.env.VITE_BACKEND_URL}api/demandes`, {
                 method: 'GET',
                 headers: {
                 'Content-Type': 'application/json',

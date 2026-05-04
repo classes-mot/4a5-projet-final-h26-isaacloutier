@@ -37,6 +37,12 @@
         "erreurModifierLigne1":"No demand has been found",
         "erreurModifierLigne2":"Please make sure you entered a value under the field 'Full name'.",
         "erreurChampsObli": "All fields are mandatory."
+    },
+
+    "login": {
+        "pseudo":"Username",
+        "password":"Password",
+        "login":"Login"
     }
     
 }

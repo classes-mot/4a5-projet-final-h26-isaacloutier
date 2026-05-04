@@ -5,7 +5,7 @@ let isConnected = false;
 export const connectDB = async () => {
     if (isConnected) return;
         
-    let uri = "mongodb://localhost:27017/woofontrency";
+    let uri = process.env.MONGODB_URI || "mongodb://localhost:27017/woofontrency";
 
     try {
         await mongoose.connect(uri);

@@ -17,7 +17,7 @@ function Fiche() {
 
     async function getData() {
         try {
-            const response = await fetch('http://localhost:5000/api/demandes');
+            const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/demandes`);
             const data = await response.json();
             setAllData(data);
         } catch (err) {

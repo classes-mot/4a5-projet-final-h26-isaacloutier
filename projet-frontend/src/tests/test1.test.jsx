@@ -12,19 +12,19 @@ import Footer from "../components/Footer/Footer";
 describe('Tests de render unitaires', () => {
     it('Render ChiensList (version En vedette)', () => {
         render(<ChiensList title="En vedette"/>);
-        expect(screen.getByText("En vedette")).toBeInTheDocument();
+        expect(screen.getByText("acceuil.enVedette")).toBeInTheDocument();
     });
 
     it('Render Footer', () => {
         render(<Footer/>);
-        expect(screen.getByText("Coordonnées")).toBeInTheDocument();
+        expect(screen.getByText("footer.coordonnes")).toBeInTheDocument();
     });
     it('Render LoginForm', () => {
         render(
             <MemoryRouter>
                 <LoginForm/>
             </MemoryRouter>);
-        expect(screen.getByText("Pseudonyme")).toBeInTheDocument();
+        expect(screen.getByText("login.pseudo")).toBeInTheDocument();
     });
 });
 
@@ -45,8 +45,8 @@ describe('Tests de render intégration', () => {
             </AuthContext>
         );
 
-        expect(screen.getByText("Login")).toBeInTheDocument();
-        expect(screen.getByText("Acceuil")).toBeInTheDocument();
+        expect(screen.getByText("header.login")).toBeInTheDocument();
+        expect(screen.getByText("header.acceuil")).toBeInTheDocument();
     });
 
     it('Render ChiensList et ChienCard en contexte logged in', () => {
@@ -63,7 +63,7 @@ describe('Tests de render intégration', () => {
                 </MemoryRouter>
             </AuthContext>
         );
-        const boutons = screen.getAllByText("Voir");
+        const boutons = screen.getAllByText("acceuil.voir");
         expect(boutons.length).toBeGreaterThan(0)
     });
 });

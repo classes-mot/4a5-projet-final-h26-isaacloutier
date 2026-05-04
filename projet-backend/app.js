@@ -4,7 +4,7 @@ import usersRoutes from "./routes/usersRoutes.js"
 import cors from "cors";
 import { connectDB } from "./util/bd.js";
 const app = express();
-const port = 5000
+const port = process.env.PORT || 5000
 
 app.use(express.json());
 app.use(cors());
