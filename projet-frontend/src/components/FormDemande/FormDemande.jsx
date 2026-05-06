@@ -132,7 +132,7 @@ function FormDemande({chien, refreshData}) {
         let data;
         try {
             const response = await
-                fetch(`${import.meta.env.VITE_BACKEND_URL}api/demandes`, {
+                fetch(`${import.meta.env.VITE_BACKEND_URL}/api/demandes`, {
                 method: 'GET',
                 headers: {
                 'Content-Type': 'application/json',
