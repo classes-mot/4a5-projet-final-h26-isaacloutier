@@ -63,7 +63,7 @@ const updateDemande = async (req, res, next) => {
   let updatedDemande;
   try {
     updatedDemande = await Demande.findById(demandeId);
-    updateDemande.idChien = idChien;
+    updatedDemande.idChien = idChien;
     updatedDemande.nom = nom;
     updatedDemande.telephone = telephone;
     updatedDemande.adresse = adresse;

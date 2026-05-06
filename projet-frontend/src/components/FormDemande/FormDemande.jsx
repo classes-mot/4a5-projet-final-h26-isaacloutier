@@ -50,6 +50,7 @@ function FormDemande({chien, refreshData}) {
 
                 if (existe) {
                     updateData(nouvelleDemande, demandeId);
+                    setDemandeAlrExists(false);
                 } else {
                     setDemandeAlrExists(false);
                     setAucuneDemandeACeNom(true);
@@ -59,6 +60,7 @@ function FormDemande({chien, refreshData}) {
                 if (existe) {
                     deleteData(demandeId);
                     event.target.reset();
+                    setDemandeAlrExists(false);
                 } else {
                     setDemandeAlrExists(false);
                     setAucuneDemandeACeNom(true);
