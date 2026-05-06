@@ -119,7 +119,8 @@
     "vite": "^8.0.10",
     "webidl-conversions": "^7.0.0",
     "whatwg-url": "^14.2.0",
-    "wrappy": "^1.0.2"
+    "wrappy": "^1.0.2",
+    "yarn": "^1.22.22"
   },
   "scripts": {
     "dev": "nodemon app.js",
